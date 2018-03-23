@@ -22,9 +22,7 @@
 <title>Online Shopping - Membership</title>
 
 <script>
-
 	window.contextRoot = '${contextRoot}'
-	
 </script>
 
 <!-- Bootstrap Core CSS -->
@@ -54,16 +52,17 @@
 	<div class="se-pre-con"></div>
 	<div class="wrapper">
 
-	    <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
-	        <div class="container">
-	            <!-- Brand and toggle get grouped for better mobile display -->
-	            <div class="navbar-header">
-	                <a class="navbar-brand" href="${flowExecutionUrl}&_eventId=home">Online Shopping</a>
-	            </div>
+		<nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+			<div class="container">
+				<!-- Brand and toggle get grouped for better mobile display -->
+				<div class="navbar-header">
+					<a class="navbar-brand" href="${flowExecutionUrl}&_eventId=home">Online
+						Shopping</a>
+				</div>
 			</div>
 		</nav>
-		
-		
+
+
 		<!-- Page Content -->
 
 		<div class="content">

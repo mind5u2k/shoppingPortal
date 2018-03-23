@@ -2,24 +2,16 @@
 	pageEncoding="ISO-8859-1"%>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
-<%
-	HttpSession session1 = request.getSession();
-	String access = (String) session1.getAttribute("Access");
-	String ComplianceRole = (String) session1
-			.getAttribute("ComplianceRole");
-	request.setAttribute("Access", access);
-	request.setAttribute("ComplianceRole", ComplianceRole);
-%>
-
 <header id="header" style="background: #313131 !important;">
 <div id="logo-group">
 	<!-- PLACE YOUR LOGO HERE -->
-	<span id="logo"> <img style="width: 64px;"
-		src="${contextPath}/comDash/img/ibmlogo.png" alt="SmartAdmin">
+	<span id="logo"> <img style="width: 64px; cursor: pointer;"
+		onclick="window.location.href='${contextRoot}/home'"
+		src="${images}/ibmlogo.png" alt="SmartAdmin">
 	</span><span id="activity" class="activity-dropdown" style="color: #313131;">
 		<i class="fa fa-user"></i>
 	</span>
-	<div class="ajax-dropdown" style="display: none; height: auto;">
+	<%-- <div class="ajax-dropdown" style="display: none; height: auto;">
 		<div class="btn-group btn-group-justified" data-toggle="buttons">
 			<label class="btn btn-default"> <input type="radio"
 				name="activity" id="ajax/notify/mail.html">User Info
@@ -46,12 +38,47 @@
 				</tr>
 			</tbody>
 		</table>
-	</div>
+	</div> --%>
 </div>
 <div class="hidden-xs" style="border-left: 1px solid #000;">
 	<div style="border-left: 2px solid #4e4d4d; height: 100%;">
-		<span id="logo" style="color: #fff; font-size: 16px; width: auto;">
-			Compliance Dashboard - <%=session.getAttribute("Access")%></span>
+		<form action="search.html" class="header-search pull-right">
+			<span role="status" aria-live="polite"
+				class="ui-helper-hidden-accessible"></span><input id="search-fld"
+				type="text" name="param" placeholder="Find reports and more"
+				style="min-width: 310px;"
+				data-autocomplete="[
+					&quot;ActionScript&quot;,
+					&quot;AppleScript&quot;,
+					&quot;Asp&quot;,
+					&quot;BASIC&quot;,
+					&quot;C&quot;,
+					&quot;C++&quot;,
+					&quot;Clojure&quot;,
+					&quot;COBOL&quot;,
+					&quot;ColdFusion&quot;,
+					&quot;Erlang&quot;,
+					&quot;Fortran&quot;,
+					&quot;Groovy&quot;,
+					&quot;Haskell&quot;,
+					&quot;Java&quot;,
+					&quot;JavaScript&quot;,
+					&quot;Lisp&quot;,
+					&quot;Perl&quot;,
+					&quot;PHP&quot;,
+					&quot;Python&quot;,
+					&quot;Ruby&quot;,
+					&quot;Scala&quot;,
+					&quot;Scheme&quot;]"
+				class="ui-autocomplete-input" autocomplete="off">
+			<button type="submit">
+				<i class="fa fa-search"></i>
+			</button>
+			<a href="javascript:void(0);" id="cancel-search-js"
+				title="Cancel Search"><i class="fa fa-times"></i></a>
+		</form>
+		<!-- <span id="logo" style="color: #fff; font-size: 16px; width: auto;">
+			Compliance Dashboard </span> -->
 	</div>
 </div>
 
@@ -67,7 +94,7 @@
 		class="header-dropdown-list hidden-xs padding-5">
 		<li class=""><a href="#"
 			class="dropdown-toggle no-margin userdropdown" data-toggle="dropdown">
-				asd </a>
+		</a>
 			<ul class="dropdown-menu pull-right">
 				<li><a href="javascript:void(0);"
 					class="padding-10 padding-top-0 padding-bottom-0"><i
@@ -107,15 +134,17 @@
 				class="fa fa-sign-out"></i></a>
 		</span>
 	</div>
-	<div id="fullscreen" class="btn-header transparent pull-right">
+	<div id="fullscreen" class="pull-right">
 		<span> <a href="javascript:void(0);"
-			data-action="launchFullscreen" title="Full Screen"><i
-				class="fa fa-arrows-alt"></i></a>
+			data-action="launchFullscreen" title="Full Screen"><span
+				id="logo" style="color: #fff; font-size: 16px; width: auto;">Login</span></a>
 		</span>
 	</div>
-	<div id="fullscreen" class="btn-header transparent pull-right">
-		<span> <a href="CompDashBasePage" style="padding: 3px;"><i
-				style="font-size: 21px;" class="fa fa-home"></i></a>
+	<div id="fullscreen" class="pull-right">
+		<span> <a href="${contextRoot}/membership"
+			style="padding: 3px;"><span id="logo"
+				style="color: #fff; font-size: 16px; width: auto; border-right: 1px solid #fff; padding-right: 12px;">Sign
+					Up</span></a>
 		</span>
 	</div>
 </div>

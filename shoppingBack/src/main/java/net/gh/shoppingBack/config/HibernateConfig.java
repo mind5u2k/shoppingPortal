@@ -9,13 +9,12 @@ import org.hibernate.SessionFactory;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.core.annotation.Order;
 import org.springframework.orm.hibernate5.HibernateTransactionManager;
 import org.springframework.orm.hibernate5.LocalSessionFactoryBuilder;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
 
 @Configuration
-@ComponentScan(basePackages = { "net.kzn.shoppingbackend.dto" })
+@ComponentScan(basePackages = { "net.gh.shoppingBack.dto" })
 @EnableTransactionManagement
 public class HibernateConfig {
 
