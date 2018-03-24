@@ -1,5 +1,8 @@
 package net.gh.shopping.controller;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
@@ -75,12 +78,20 @@ public class PageController {
 
 	@RequestMapping(value = "/show/all/products")
 	public ModelAndView showAllProducts() {
-		ModelAndView mv = new ModelAndView("page");
+		ModelAndView mv = new ModelAndView("page1");
 		mv.addObject("title", "All Products");
 
-		// passing the list of categories
-		mv.addObject("categories", categoryDAO.list());
+		Category e = new Category();
+		e.setId(0);
+		e.setName("All Products");
 
+		List<Category> categories = new ArrayList<Category>();
+		categories.add(e);
+		categories.addAll(categoryDAO.list());
+		mv.addObject("categories", categories);
+		List<Product> products = productDAO.listActiveProducts();
+		mv.addObject("category", e);
+		mv.addObject("products", products);
 		mv.addObject("userClickAllProducts", true);
 		return mv;
 	}
@@ -88,20 +99,11 @@ public class PageController {
 	@RequestMapping(value = "/show/category/{id}/products")
 	public ModelAndView showCategoryProducts(@PathVariable("id") int id) {
 		ModelAndView mv = new ModelAndView("page");
-
-		// categoryDAO to fetch a single category
 		Category category = null;
-
 		category = categoryDAO.get(id);
-
 		mv.addObject("title", category.getName());
-
-		// passing the list of categories
 		mv.addObject("categories", categoryDAO.list());
-
-		// passing the single category object
 		mv.addObject("category", category);
-
 		mv.addObject("userClickCategoryProducts", true);
 		return mv;
 	}

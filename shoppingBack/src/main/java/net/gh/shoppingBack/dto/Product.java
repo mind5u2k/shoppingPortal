@@ -8,6 +8,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.Lob;
 import javax.persistence.Transient;
 import javax.validation.constraints.Min;
 
@@ -16,6 +17,7 @@ import org.springframework.stereotype.Component;
 import org.springframework.web.multipart.MultipartFile;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.mysql.jdbc.Blob;
 
 @Component
 @Entity
@@ -40,6 +42,15 @@ public class Product implements Serializable {
 	private int quantity;
 	@Column(name = "is_active")
 	private boolean active;
+
+	public Blob getContent() {
+		return content;
+	}
+
+	public void setContent(Blob content) {
+		this.content = content;
+	}
+
 	@Column(name = "category_id")
 	@JsonIgnore
 	private int categoryId;
@@ -48,6 +59,11 @@ public class Product implements Serializable {
 	private int supplierId;
 	private int purchases;
 	private int views;
+
+	private byte[] data;
+
+	@Lob
+	private Blob content;
 
 	@Transient
 	private MultipartFile file;
@@ -174,5 +190,13 @@ public class Product implements Serializable {
 				+ ", active=" + active + ", categoryId=" + categoryId
 				+ ", supplierId=" + supplierId + ", purchases=" + purchases
 				+ ", views=" + views + "]";
+	}
+
+	public byte[] getData() {
+		return data;
+	}
+
+	public void setData(byte[] data) {
+		this.data = data;
 	}
 }

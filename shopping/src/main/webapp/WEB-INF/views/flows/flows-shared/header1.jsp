@@ -149,8 +149,7 @@
 				</span>
 			</div>
 			<div id="fullscreen" class="pull-right">
-				<span> <a href="javascript:void(0);"
-					data-action="launchFullscreen" title="Full Screen"><span
+				<span> <a href="${contextRoot}/login" title="Full Screen"><span
 						id="logo"
 						style="color: #fff; font-size: 16px; width: auto; margin-top: 10px;">Login</span></a>
 				</span>

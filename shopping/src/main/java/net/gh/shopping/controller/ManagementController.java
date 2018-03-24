@@ -43,18 +43,17 @@ public class ManagementController {
 	public ModelAndView manageProduct(
 			@RequestParam(name = "success", required = false) String success) {
 
-		ModelAndView mv = new ModelAndView("page");
+		ModelAndView mv = new ModelAndView("page1");
 		mv.addObject("title", "Product Management");
 		mv.addObject("userClickManageProduct", true);
 
 		Product nProduct = new Product();
-
-		// assuming that the user is ADMIN
-		// later we will fixed it based on user is SUPPLIER or ADMIN
 		nProduct.setSupplierId(1);
 		nProduct.setActive(true);
 
 		mv.addObject("product", nProduct);
+
+		mv.addObject("products", productDAO.list());
 
 		if (success != null) {
 			if (success.equals("product")) {
@@ -71,12 +70,13 @@ public class ManagementController {
 	@RequestMapping("/{id}/product")
 	public ModelAndView manageProductEdit(@PathVariable int id) {
 
-		ModelAndView mv = new ModelAndView("page");
+		ModelAndView mv = new ModelAndView("page1");
 		mv.addObject("title", "Product Management");
 		mv.addObject("userClickManageProduct", true);
 
 		// Product nProduct = new Product();
 		mv.addObject("product", productDAO.get(id));
+		mv.addObject("products", productDAO.list());
 
 		return mv;
 
@@ -86,22 +86,18 @@ public class ManagementController {
 	public String managePostProduct(
 			@Valid @ModelAttribute("product") Product mProduct,
 			BindingResult results, Model model, HttpServletRequest request) {
-
-		// mandatory file upload check
 		if (mProduct.getId() == 0) {
 			new ProductValidator().validate(mProduct, results);
 		} else {
-			// edit check only when the file has been selected
 			if (!mProduct.getFile().getOriginalFilename().equals("")) {
 				new ProductValidator().validate(mProduct, results);
 			}
 		}
-
 		if (results.hasErrors()) {
 			model.addAttribute("message",
 					"Validation fails for adding the product!");
 			model.addAttribute("userClickManageProduct", true);
-			return "page";
+			return "page1";
 		}
 
 		if (mProduct.getId() == 0) {

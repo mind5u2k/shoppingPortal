@@ -1,12 +1,13 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1"%>
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@taglib prefix="spring" uri="http://www.springframework.org/tags"%>
 
-<spring:url var="css" value="/resources/css" />
-<spring:url var="js" value="/resources/js" />
-<spring:url var="images" value="/resources/images" />
+<spring:url var="css" value="/resources/shopping/css" />
+<spring:url var="js" value="/resources/shopping/js" />
+<spring:url var="images" value="/resources/shopping/img" />
+<spring:url var="fonts" value="/resources/shopping/fonts" />
 
-<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>	
 <c:set var="contextRoot" value="${pageContext.request.contextPath}" />
 <!DOCTYPE html>
 <html lang="en">
@@ -16,139 +17,174 @@
 <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<meta name="description" content="">
-<meta name="author" content="">
+<meta name="description"
+	content="Online Shopping Website Using Spring MVC and Hibernate">
 
 <title>Online Shopping - ${title}</title>
 
-<!-- Bootstrap Core CSS -->
-<link href="${css}/bootstrap.min.css" rel="stylesheet">
-
-<!-- Bootstrap Readable Theme -->
-<link href="${css}/bootstrap-readable-theme.css" rel="stylesheet">
-
-
-<!-- Custom CSS -->
-<link href="${css}/myapp.css" rel="stylesheet">
-
-<!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
-<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
-<!--[if lt IE 9]>
-        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
-        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
-    <![endif]-->
 <script>
 	window.menu = '${title}';
-	
 	window.contextRoot = '${contextRoot}'
-	
 </script>
+
+<link rel="stylesheet" type="text/css" media="screen"
+	href="${css}/bootstrap.min.css">
+<link rel="stylesheet" type="text/css" media="screen"
+	href="${css}/font-awesome.min.css">
+
+<!-- SmartAdmin Styles : Caution! DO NOT change the order -->
+<link rel="stylesheet" type="text/css" media="screen"
+	href="${css}/smartadmin-production-plugins.min.css">
+<link rel="stylesheet" type="text/css" media="screen"
+	href="${css}/smartadmin-production.min.css">
+<script src="${js}/libs/jquery-2.1.1.min.js"></script>
+<script src="${js}/libs/jquery-ui-1.10.3.min.js"></script>
 </head>
-
-<body>
-
-	<div class="wrapper">
-
-		<!-- Navigation -->
-	    <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
-	        <div class="container">
-	            <!-- Brand and toggle get grouped for better mobile display -->
-	            <div class="navbar-header">
-	                <a class="navbar-brand" href="${contextRoot}/home">Online Shopping</a>
-	            </div>
-			</div>
-		</nav>		
-
-		<!-- Page Content -->
-
-		<div class="content">
-			
-   <div class="container">
-    
-   	<c:if test="${not empty message}">
-		<div class="row">
-			<div class="col-xs-12 col-md-offset-2 col-md-8">
-				<div class="alert alert-danger fade in">${message}</div>
-			</div>
-		</div>
-	</c:if>
-         
-   	<c:if test="${not empty logout}">
-		<div class="row">
-			<div class="col-xs-12 col-md-offset-2 col-md-8">
-				<div class="alert alert-success">${logout}</div>
-			</div>
-		</div>
-	</c:if>
-       
-    <div class="row">
-     
-     <div class="col-md-offset-3 col-md-6">
-      
-      <div class="panel panel-primary">
-       
-       <div class="panel-heading">
-        <h4>Login</h4>
-       </div>
-       
-       <div class="panel-body">
-        <form action="${contextRoot}/login" method="POST" class="form-horizontal"
-         id="loginForm"
-        >
-         <div class="form-group">
-          <label for="username" class="col-md-4 control-label">Email: </label>
-          <div class="col-md-8">
-           <input type="text" name="username" id="username" class="form-control"/>
-          </div>
-         </div>
-         <div class="form-group">
-          <label for="password" class="col-md-4 control-label">Password: </label>
-          <div class="col-md-8">
-           <input type="password" name="password" id="password" class="form-control"/>
-          </div>
-         </div>
-         <div class="form-group">
-          <div class="col-md-offset-4 col-md-8">
-           <input type="hidden"  name="${_csrf.parameterName}"   value="${_csrf.token}"/>
-           <input type="submit" value="Login" class="btn btn-primary"/>
-          </div>
-         </div>
-        </form>
-       
-       </div>
-       <div class="panel-footer">
-       	<div class="text-right">
-       		New User - <a href="${contextRoot}/register">Register Here</a>
-       	</div>
-       </div>
-      
-      </div> 
-    
-     </div>
-     
-    </div>    
-   
-   </div>
-
-			
+<body
+	class="animated fadeInDown  desktop-detected menu-on-top pace-done fixed-page-footer">
+	<header id="header"
+		style="background: linear-gradient(to bottom, #292727, #5c5b5b); height: 71px; color: #fff;">
+		<div id="logo-group">
+			<span id="logo"> <img src="${images}/ibmlogo.png"
+				style="cursor: pointer;"
+				onclick="window.location.href='${contextRoot}/home'"
+				alt="SmartAdmin">
+			</span>
 		</div>
 
+		<span id="extr-page-header-space"> <span
+			class="hidden-mobile hiddex-xs">Need an account?</span> <a
+			href="${contextRoot}/membership" class="btn btn-danger">Create
+				account</a>
+		</span>
 
-		<!-- Footer comes here -->
-		<%@include file="./shared/footer.jsp"%>
+	</header>
+	<div id="main" role="main">
 
-		<!-- jQuery -->
-		<script src="${js}/jquery.js"></script>
+		<!-- MAIN CONTENT -->
+		<div id="content" class="container">
 
-		<script src="${js}/jquery.validate.js"></script>
+			<div class="row">
+				<div
+					class="col-xs-12 col-sm-12 col-md-7 col-lg-8 hidden-xs hidden-sm">
+					<h1 class="txt-color-red login-header-big">Online Shopping
+						Login</h1>
+					<div class="hero">
 
-		<!-- Bootstrap Core JavaScript -->
-		<script src="${js}/bootstrap.min.js"></script>
-		
-		<!-- Self coded javascript -->
-		<script src="${js}/myapp.js"></script>
+						<div class="pull-left login-desc-box-l">
+							<h4 class="paragraph-header">Get access to your Orders,
+								Wishlist and Recommendations!</h4>
+
+						</div>
+
+						<%-- <img src="${images}/demo/laptops.png"
+							class="pull-right display-image" alt="" style="width: 210px"> --%>
+
+					</div>
+
+					<div class="row">
+						<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12"
+							style="padding-top: 29px; text-align: center;">
+							<img src="${images}/demo/laptops.png" class="" alt=""
+								style="width: 376px;">
+						</div>
+					</div>
+
+					<div class="row">
+						<div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
+							<h5 class="about-heading">About SmartAdmin - Are you up to
+								date?</h5>
+							<p>Sed ut perspiciatis unde omnis iste natus error sit
+								voluptatem accusantium doloremque laudantium, totam rem aperiam,
+								eaque ipsa.</p>
+						</div>
+						<div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
+							<h5 class="about-heading">Not just your average template!</h5>
+							<p>Et harum quidem rerum facilis est et expedita distinctio.
+								Nam libero tempore, cum soluta nobis est eligendi voluptatem
+								accusantium!</p>
+						</div>
+					</div>
+
+				</div>
+				<div class="col-xs-12 col-sm-12 col-md-5 col-lg-4">
+					<div class="well no-padding"
+						style="border: 1px solid #717070; box-shadow: 7px 8px 7px #a8a5a5;">
+						<form action="${contextRoot}/login" method="POST" id="login-form"
+							class="smart-form client-form" novalidate="novalidate">
+							<header style="background: #716f6f !important; color: #fff;">
+								Sign In </header>
+							<fieldset>
+								<section>
+									<label class="label">E-mail</label> <label class="input">
+										<i class="icon-append fa fa-user"></i> <input type="email"
+										name="username" id="username" /> <b
+										class="tooltip tooltip-top-right"><i
+											class="fa fa-user txt-color-teal"></i> Please enter email
+											address/username</b>
+									</label>
+								</section>
+								<section>
+									<label class="label">Password</label> <label class="input">
+										<i class="icon-append fa fa-lock"></i> <input type="password"
+										name="password" id="password" /> <b
+										class="tooltip tooltip-top-right"><i
+											class="fa fa-lock txt-color-teal"></i> Enter your password</b>
+									</label>
+									<div class="note" style="margin-top: 22px;">
+										<a href="forgotpassword.html">Forgot password?</a>
+									</div>
+								</section>
+							</fieldset>
+							<footer style="background: #717070;">
+								<input type="hidden" name="${_csrf.parameterName}"
+									value="${_csrf.token}" />
+								<button type="submit" class="btn btn-default">Sign in</button>
+							</footer>
+						</form>
+
+					</div>
+
+				</div>
+			</div>
+		</div>
 
 	</div>
+
+	<!-- <div class="page-footer">
+		<div class="row">
+			<div class="col-xs-12 col-sm-6">
+				<span class="txt-color-white">E-Commerce <span
+					class="hidden-xs"> - Web Application Framework</span>
+				</span>
+			</div>
+
+			<div class="col-xs-6 col-sm-6 text-right hidden-xs">
+				<span class="txt-color-white">Designed & Developed by <span
+					class="hidden-xs"> - Anurag Ghosh</span>
+				</span>
+
+			</div>
+		</div>
+	</div> -->
+
+	<script>
+		if (!window.jQuery.ui) {
+			document
+					.write('<script src="${contextPath}/comDash/js/libs/jquery-ui-1.10.3.min.js"><\/script>');
+		}
+	</script>
+	<script src="${js}/app.config.js"></script>
+	<script src="${js}/bootstrap/bootstrap.min.js"></script>
+	<script src="${js}/notification/SmartNotification.min.js"></script>
+	<script src="${js}/plugin/jquery-validate/jquery.validate.min.js"></script>
+	<script src="${js}/plugin/bootstrap-slider/bootstrap-slider.min.js"></script>
+	<script src="${js}/app.min.js"></script>
+	<script src="${js}/plugin/bootstrapvalidator/bootstrapValidator.min.js"></script>
+	<script src="${contextPath}/comDash/complianceDashMyApp.js"></script>
+	<script src="${js}/myapp.js"></script>
+	<!-- jQuery -->
+
 
 </body>
 

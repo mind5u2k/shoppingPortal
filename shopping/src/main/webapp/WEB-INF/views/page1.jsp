@@ -7,6 +7,7 @@
 <spring:url var="js" value="/resources/shopping/js" />
 <spring:url var="images" value="/resources/shopping/img" />
 <spring:url var="fonts" value="/resources/shopping/fonts" />
+<spring:url var="img" value="/resources/images" />
 
 <c:set var="contextRoot" value="${pageContext.request.contextPath}" />
 <!DOCTYPE html>
@@ -49,6 +50,36 @@
 	<div id="main" role="main">
 		<c:if test="${userClickHome == true }">
 			<%@include file="home1.jsp"%>
+		</c:if>
+		<c:if test="${userClickAbout == true }">
+			<%@include file="about.jsp"%>
+		</c:if>
+
+		<!-- Load only when user clicks contact -->
+		<c:if test="${userClickContact == true }">
+			<%@include file="contact.jsp"%>
+		</c:if>
+
+		<!-- Load only when user clicks contact -->
+		<c:if
+			test="${userClickAllProducts == true or userClickCategoryProducts == true }">
+			<%@include file="listProducts1.jsp"%>
+		</c:if>
+
+
+		<!-- Load only when user clicks show product -->
+		<c:if test="${userClickShowProduct == true}">
+			<%@include file="singleProduct.jsp"%>
+		</c:if>
+
+		<!-- Load only when user clicks manage product -->
+		<c:if test="${userClickManageProduct == true}">
+			<%@include file="manageProduct1.jsp"%>
+		</c:if>
+
+		<!-- Load only when user clicks manage product -->
+		<c:if test="${userClickShowCart == true}">
+			<%@include file="cart.jsp"%>
 		</c:if>
 	</div>
 	<%@include file="./shared/footer1.jsp"%>
