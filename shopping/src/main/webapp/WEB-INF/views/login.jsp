@@ -45,11 +45,15 @@
 	<header id="header"
 		style="background: linear-gradient(to bottom, #292727, #5c5b5b); height: 71px; color: #fff;">
 		<div id="logo-group">
-			<span id="logo"> <img src="${images}/ibmlogo.png"
+			<span style="color: #fff; font-size: 48px; padding: 0px 0 0 10px;"><i
 				style="cursor: pointer;"
 				onclick="window.location.href='${contextRoot}/home'"
+				class="fa fa-cube"></i></span>
+			<%-- <span id="logo"> <img
+				src="${images}/ibmlogo.png" style="cursor: pointer;"
+				onclick="window.location.href='${contextRoot}/home'"
 				alt="SmartAdmin">
-			</span>
+			</span> --%>
 		</div>
 
 		<span id="extr-page-header-space"> <span
@@ -92,17 +96,18 @@
 
 					<div class="row">
 						<div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
-							<h5 class="about-heading">About SmartAdmin - Are you up to
-								date?</h5>
-							<p>Sed ut perspiciatis unde omnis iste natus error sit
-								voluptatem accusantium doloremque laudantium, totam rem aperiam,
-								eaque ipsa.</p>
+							<h5 class="about-heading">What is an eCommerce website?</h5>
+							<p>eCommerce websites are online portals that facilitate
+								online transactions of goods and services through means of the
+								transfer of information and funds over the Internet..</p>
 						</div>
 						<div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
-							<h5 class="about-heading">Not just your average template!</h5>
-							<p>Et harum quidem rerum facilis est et expedita distinctio.
-								Nam libero tempore, cum soluta nobis est eligendi voluptatem
-								accusantium!</p>
+							<h5 class="about-heading">Different Types of eCommerce
+								Websites</h5>
+							<p>Business-to-Business (B2B), Business-to-Consumer (B2C),
+								Consumer-to- Consumer (C2C), Consumer-to-Business (C2B),
+								Business-to-Administration (B2A), Consumer-to-Administration
+								(C2A)</p>
 						</div>
 					</div>
 

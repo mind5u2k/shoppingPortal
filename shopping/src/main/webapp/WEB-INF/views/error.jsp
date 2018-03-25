@@ -78,7 +78,7 @@
 		</div>
 
 		
-		<%@include file="./shared/footer.jsp" %>
+		<%@include file="./shared/footer1.jsp" %>
 
 	</div>
 		

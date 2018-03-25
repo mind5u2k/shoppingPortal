@@ -25,7 +25,7 @@ public class CartController {
 	public ModelAndView showCart(
 			@RequestParam(name = "result", required = false) String result) {
 
-		ModelAndView mv = new ModelAndView("page");
+		ModelAndView mv = new ModelAndView("page1");
 		mv.addObject("title", "Shopping Cart");
 		mv.addObject("userClickShowCart", true);
 

@@ -54,30 +54,19 @@
 		<c:if test="${userClickAbout == true }">
 			<%@include file="about.jsp"%>
 		</c:if>
-
-		<!-- Load only when user clicks contact -->
 		<c:if test="${userClickContact == true }">
 			<%@include file="contact.jsp"%>
 		</c:if>
-
-		<!-- Load only when user clicks contact -->
 		<c:if
 			test="${userClickAllProducts == true or userClickCategoryProducts == true }">
 			<%@include file="listProducts1.jsp"%>
 		</c:if>
-
-
-		<!-- Load only when user clicks show product -->
 		<c:if test="${userClickShowProduct == true}">
-			<%@include file="singleProduct.jsp"%>
+			<%@include file="singleProduct1.jsp"%>
 		</c:if>
-
-		<!-- Load only when user clicks manage product -->
 		<c:if test="${userClickManageProduct == true}">
 			<%@include file="manageProduct1.jsp"%>
 		</c:if>
-
-		<!-- Load only when user clicks manage product -->
 		<c:if test="${userClickShowCart == true}">
 			<%@include file="cart.jsp"%>
 		</c:if>
@@ -97,28 +86,6 @@
 	<script src="${js}/plugin/bootstrap-slider/bootstrap-slider.min.js"></script>
 	<script src="${js}/app.min.js"></script>
 	<script src="${js}/plugin/bootstrapvalidator/bootstrapValidator.min.js"></script>
-	<script src="${contextPath}/comDash/complianceDashMyApp.js"></script>
 	<script src="${js}/myapp.js"></script>
-	<!-- jQuery -->
-	<%-- 	<script src="${js}/jquery.js"></script>
-
-		<script src="${js}/jquery.validate.js"></script>
-
-		<!-- Bootstrap Core JavaScript -->
-		<script src="${js}/bootstrap.min.js"></script>
-
-		<!-- DataTable Plugin -->
-		<script src="${js}/jquery.dataTables.js"></script>
-
-		<!-- DataTable Bootstrap Script -->
-		<script src="${js}/dataTables.bootstrap.js"></script>
-
-		<!-- DataTable Bootstrap Script -->
-		<script src="${js}/bootbox.min.js"></script>
-
-		<!-- Self coded javascript -->
-		<script src="${js}/myapp.js"></script> --%>
-
 </body>
-
 </html>

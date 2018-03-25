@@ -7,6 +7,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import net.gh.shopping.exception.ProductNotFoundException;
+import net.gh.shopping.model.categoryWiseProduct;
 import net.gh.shoppingBack.dao.CategoryDAO;
 import net.gh.shoppingBack.dao.ProductDAO;
 import net.gh.shoppingBack.dto.Category;
@@ -44,10 +45,31 @@ public class PageController {
 
 		logger.info("Inside PageController index method - INFO");
 		logger.debug("Inside PageController index method - DEBUG");
-
-		// passing the list of categories
 		mv.addObject("categories", categoryDAO.list());
 
+		List<Category> categories = categoryDAO.list();
+		List<categoryWiseProduct> categoryWiseProducts = new ArrayList<categoryWiseProduct>();
+
+		for (Category c : categories) {
+			categoryWiseProduct wiseProduct = new categoryWiseProduct();
+			wiseProduct.setCategory(c);
+			List<Product> products = productDAO.listActiveProductsByCategory(c
+					.getId());
+			List<Product> products2 = new ArrayList<Product>();
+			if (products != null) {
+				int i = 0;
+				for (Product product : products) {
+					products2.add(product);
+					if (i == 3) {
+						break;
+					}
+					i++;
+				}
+			}
+			wiseProduct.setProducts(products2);
+			categoryWiseProducts.add(wiseProduct);
+		}
+		mv.addObject("categoryWiseProducts", categoryWiseProducts);
 		if (logout != null) {
 			mv.addObject("message", "You have successfully logged out!");
 		}
@@ -58,7 +80,7 @@ public class PageController {
 
 	@RequestMapping(value = "/about")
 	public ModelAndView about() {
-		ModelAndView mv = new ModelAndView("page");
+		ModelAndView mv = new ModelAndView("page1");
 		mv.addObject("title", "About Us");
 		mv.addObject("userClickAbout", true);
 		return mv;
@@ -66,7 +88,7 @@ public class PageController {
 
 	@RequestMapping(value = "/contact")
 	public ModelAndView contact() {
-		ModelAndView mv = new ModelAndView("page");
+		ModelAndView mv = new ModelAndView("page1");
 		mv.addObject("title", "Contact Us");
 		mv.addObject("userClickContact", true);
 		return mv;
@@ -98,13 +120,19 @@ public class PageController {
 
 	@RequestMapping(value = "/show/category/{id}/products")
 	public ModelAndView showCategoryProducts(@PathVariable("id") int id) {
-		ModelAndView mv = new ModelAndView("page");
+		ModelAndView mv = new ModelAndView("productsByCat");
 		Category category = null;
-		category = categoryDAO.get(id);
-		mv.addObject("title", category.getName());
-		mv.addObject("categories", categoryDAO.list());
+		List<Product> products = new ArrayList<Product>();
+		if (id == 0) {
+			category = new Category();
+			category.setName("All Products");
+			products = productDAO.listActiveProducts();
+		} else {
+			category = categoryDAO.get(id);
+			products = productDAO.listActiveProductsByCategory(id);
+		}
 		mv.addObject("category", category);
-		mv.addObject("userClickCategoryProducts", true);
+		mv.addObject("products", products);
 		return mv;
 	}
 
@@ -116,7 +144,7 @@ public class PageController {
 	public ModelAndView showSingleProduct(@PathVariable int id)
 			throws ProductNotFoundException {
 
-		ModelAndView mv = new ModelAndView("page");
+		ModelAndView mv = new ModelAndView("page1");
 
 		Product product = productDAO.get(id);
 

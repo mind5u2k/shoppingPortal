@@ -55,53 +55,17 @@
 	class="desktop-detected menu-on-top voice-command-active service-not-allowed pace-done fixed-header fixed-navigation">
 	<header id="header" style="background: #313131 !important;">
 		<div id="logo-group">
-			<!-- PLACE YOUR LOGO HERE -->
-			<span id="logo"> <img style="width: 64px; cursor: pointer;"
+			<span style="color: #fff; font-size: 36px; padding: 6px 0 0 12px;"><i
+				style="cursor: pointer;"
 				onclick="window.location.href='${contextRoot}/home'"
-				src="${images}/ibmlogo.png" alt="SmartAdmin">
-			</span>
-			<!-- <span id="activity" class="activity-dropdown" style="color: #313131;">
-				<i class="fa fa-user"></i>
-			</span> -->
-			<%-- <div class="ajax-dropdown" style="display: none; height: auto;">
-		<div class="btn-group btn-group-justified" data-toggle="buttons">
-			<label class="btn btn-default"> <input type="radio"
-				name="activity" id="ajax/notify/mail.html">User Info
-			</label>
-		</div>
-		<div class=" "></div>
-		<table style="display: table; width: 100%;">
-			<tbody>
-				<tr style="border-bottom: 1px solid #ccc; background: #eaeaea;">
-					<td style="padding: 4px 0px 4px 14px;">Name</td>
-					<td style="padding: 4px"><%=session.getAttribute("UserName")%></td>
-				</tr>
-				<tr style="border-bottom: 1px solid #ccc; background: #f7f6f6;">
-					<td style="padding: 4px 0px 4px 14px;">E-Mail</td>
-					<td style="padding: 4px"><%=session.getAttribute("mailid")%></td>
-				</tr>
-				<tr style="border-bottom: 1px solid #ccc; background: #eaeaea;">
-					<td style="padding: 4px 0px 4px 14px;">Role</td>
-					<td style="padding: 4px"><%=session.getAttribute("ComplianceRole")%></td>
-				</tr>
-				<tr style="border-bottom: 1px solid #ccc; background: #f7f6f6;">
-					<td style="padding: 4px 0px 4px 14px;">Access</td>
-					<td style="padding: 4px"><%=session.getAttribute("Access")%></td>
-				</tr>
-			</tbody>
-		</table>
-	</div> --%>
+				class="fa fa-cube"></i></span>
+			<%-- <span id="logo"> <img style="width: 64px; cursor: pointer;"
+				onclick="window.location.href='${contextRoot}/home'"
+				src="${images}/plistlogo.png" alt="SmartAdmin">
+			</span> --%>
 		</div>
 		<div class="hidden-xs" style="border-left: 1px solid #000;"></div>
-
 		<div class="pull-right">
-
-			<!-- collapse menu button -->
-
-			<!-- end collapse menu -->
-
-			<!-- #MOBILE -->
-			<!-- Top menu profile link : this shows only when top menu is active -->
 			<ul id="mobile-profile-img"
 				class="header-dropdown-list hidden-xs padding-5">
 				<li class=""><a href="#"
@@ -148,7 +112,7 @@
 						class="fa fa-sign-out"></i></a>
 				</span>
 			</div>
-			<div id="fullscreen" class="pull-right">
+			<%-- <div id="fullscreen" class="pull-right">
 				<span> <a href="${contextRoot}/login" title="Full Screen"><span
 						id="logo"
 						style="color: #fff; font-size: 16px; width: auto; margin-top: 10px;">Login</span></a>
@@ -159,17 +123,9 @@
 					style="color: #fff; font-size: 13px; width: auto; border-right: 1px solid #fff; padding-right: 12px;">Already
 						Registered ?</span>
 				</span>
-			</div>
+			</div> --%>
 		</div>
 	</header>
-
-	<!-- jQuery -->
-	<script>
-		if (!window.jQuery.ui) {
-			document
-					.write('_$tag_________________________________________________________________$tag_____');
-		}
-	</script>
 	<script src="${js}/app.config.js"></script>
 	<script src="${js}/bootstrap/bootstrap.min.js"></script>
 	<script src="${js}/notification/SmartNotification.min.js"></script>

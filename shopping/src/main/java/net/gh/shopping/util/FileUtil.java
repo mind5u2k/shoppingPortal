@@ -15,8 +15,9 @@ import org.springframework.web.multipart.MultipartFile;
 
 public class FileUtil {
 
-	private static final String ABS_PATH = "C:\\Projects\\Projects\\shoppingPortal\\shoppingPortal\\shopping\\src\\main\\webapp\\assets\\images\\";
+	private static final String ABS_PATH1 = "C:\\Projects\\Projects\\shoppingPortal\\shoppingPortal\\shopping\\src\\main\\webapp\\assets\\images\\";
 	private static String REAL_PATH = null;
+	private static String ABS_PATH = "/opt/java/apache-tomcat-8.5.23/webapps/website/assets/images/";
 	private static final Logger logger = LoggerFactory
 			.getLogger(FileUtil.class);
 
@@ -76,4 +77,6 @@ public class FileUtil {
 		}
 	}
 
+	public static void main(String[] args) {
+	}
 }

@@ -139,7 +139,7 @@
 
 
 		<!-- Footer comes here -->
-		<%@include file="./shared/footer.jsp"%>
+		<%@include file="./shared/footer1.jsp"%>
 
 		<!-- jQuery -->
 		<script src="${js}/jquery.js"></script>

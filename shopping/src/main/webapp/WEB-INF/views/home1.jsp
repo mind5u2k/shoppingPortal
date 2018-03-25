@@ -1,3 +1,14 @@
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+
+<style>
+.panel-success:hover {
+	box-shadow: 4px 3px 8px #457531;
+}
+
+.panel-body:after {
+	content: none;
+}
+</style>
 <div id="ribbon">
 	<ol class="breadcrumb">
 		<li>Home</li>
@@ -53,15 +64,107 @@
 		</a>
 	</div>
 </div>
+
 <div id="content">
 	<div class="row">
-		<h2 class="row-seperator-header">
-			<i class="fa fa-plus"></i> Our Most Viewed Products
-		</h2>
-		<div class="col-sm-12 col-md-12 col-lg-12"></div>
+		<div class="col-xs-12 col-sm-12 col-md-12">
+			<h3
+				style="margin-top: 0; margin-bottom: 0; border-bottom: 0px solid #7b7979; padding: 7px 12px 22px 13px; text-align: center; font-size: 28px;">!!
+				Our Products !!</h3>
+		</div>
+		<div class="col-sm-12 col-md-12 col-lg-12">
+			<div class="jarviswidget" id="wid-id-5" role="widget">
+				<div role="content" style="border-top: 1px solid #ccc;">
+					<div class="jarviswidget-editbox"></div>
+					<div class="widget-body">
+						<c:forEach items="${categoryWiseProducts}" var="cat">
+							<c:choose>
+								<c:when test="${not empty cat.products}">
+									<div class="row">
+										<div class="col-sm-12" id="allProducts">
+											<div class="row" style="border-bottom: 1px solid #ccc;">
+												<div class="col-xs-12 col-sm-12 col-md-12"
+													style="margin-top: 23px;">
+													<h3
+														style="margin-top: 0; margin-bottom: 0; border-bottom: 0px solid #7b7979; padding: 0px 12px 11px 13px; font-size: 23px; color: #a80707;">${cat.category.name}
+														....<a class="btn btn-success"
+															href="${contextRoot}/show/all/products"
+															style="float: right;">View More Products</a>
+													</h3>
+												</div>
+												<c:forEach items="${cat.products}" var="pro">
+													<div class="col-xs-12 col-sm-6 col-md-3">
+														<div class="panel panel-success pricing-big">
+															<div class="panel-heading"
+																style="padding: 0; border: 0; background: #fff;">
+																<h3 class="panel-title" style="padding: 13px 0 7px 0;">${pro.name}</h3>
+															</div>
+															<div class="panel-heading"
+																style="padding: 2px 2px; border: 0; background: #fff;">
+																<h3 class="panel-title" style="padding: 0;">
+																	<img
+																		style="width: 100%; height: 220px; border-radius: 2px;"
+																		src="${img}/${pro.code}.jpg">
+																</h3>
+															</div>
+															<div class="panel-body no-padding text-align-center">
+																<div class="price-features"
+																	style="min-height: 0; background: #fff; padding-bottom: 0; padding: 0;">
+																	<ul class="list-unstyled text-left"
+																		style="text-align: center !important; padding: 13px 12px 2px 12px;">
+																		<li class="text-success">Price - <strong>
+																				just <i class="fa fa-rupee text-success"></i>
+																				${pro.unitPrice}
+																		</strong></li>
+																		<c:choose>
+																			<c:when test="${pro.quantity < 1}">
+																				<li style="margin-top: 2px; color: red;">!! Out
+																					of Stock !!</li>
+																			</c:when>
+																			<c:otherwise>
+																				<li style="margin-top: 2px;">Qty Available : <strong>
+																						${pro.quantity}</strong> <i
+																					class="fa fa-check text-success"></i>
+																				</li>
+																			</c:otherwise>
+																		</c:choose>
+																		<li style="margin-bottom: 10px;"><button
+																				class="btn btn-primary"
+																				onclick="window.location.href='${contextRoot}/show/${pro.id}/product'">
+																				<i class="fa fa-eye"></i> View
+																			</button> <c:choose>
+																				<c:when test="${pro.quantity < 1}">
+																					<button class="btn btn-primary" disabled="disabled">
+																						<i class="fa fa-shopping-cart"></i> Add to Cart
+																					</button>
+																				</c:when>
+																				<c:otherwise>
+																					<button class="btn btn-primary"
+																						onclick="window.location.href='${contextRoot}/cart/add/${pro.id}/product'">
+																						<i class="fa fa-shopping-cart"></i> Add to Cart
+																					</button>
+																				</c:otherwise>
+																			</c:choose></li>
+																	</ul>
+																</div>
+															</div>
+														</div>
+													</div>
+												</c:forEach>
+											</div>
+										</div>
+									</div>
+								</c:when>
+								<c:otherwise>
+								</c:otherwise>
+							</c:choose>
+						</c:forEach>
+					</div>
+				</div>
+			</div>
+		</div>
 	</div>
 </div>
-
 <%-- <div class="content">
 
 	<!-- Loading the home content -->
