@@ -55,10 +55,10 @@
 	class="desktop-detected menu-on-top voice-command-active service-not-allowed pace-done fixed-header fixed-navigation">
 	<header id="header" style="background: #313131 !important;">
 		<div id="logo-group">
-			<span style="color: #fff; font-size: 36px; padding: 6px 0 0 12px;"><i
+			<span style="color: #fff; font-size: 36px; padding: 1px 0 0 12px;"><i
 				style="cursor: pointer;"
 				onclick="window.location.href='${contextRoot}/home'"
-				class="fa fa-cube"></i></span>
+				class="fa fa-tasks"></i></span>
 			<%-- <span id="logo"> <img style="width: 64px; cursor: pointer;"
 				onclick="window.location.href='${contextRoot}/home'"
 				src="${images}/plistlogo.png" alt="SmartAdmin">

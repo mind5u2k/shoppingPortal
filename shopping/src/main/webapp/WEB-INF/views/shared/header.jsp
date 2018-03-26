@@ -10,7 +10,7 @@
 		<span style="color: #fff; font-size: 36px; padding-left: 12px;"><i
 			style="cursor: pointer;"
 			onclick="window.location.href='${contextRoot}/home'"
-			class="fa fa-cube"></i></span>
+			class="fa fa-tasks"></i></span>
 		<%-- <span id="logo"> <img style="width: 64px; cursor: pointer;"
 			onclick="window.location.href='${contextRoot}/home'"
 			src="${images}/ibmlogo.png" alt="SmartAdmin">

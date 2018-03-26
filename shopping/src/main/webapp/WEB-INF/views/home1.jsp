@@ -96,8 +96,9 @@
 													<div class="col-xs-12 col-sm-6 col-md-3">
 														<div class="panel panel-success pricing-big">
 															<div class="panel-heading"
-																style="padding: 0; border: 0; background: #fff;">
-																<h3 class="panel-title" style="padding: 13px 0 7px 0;">${pro.name}</h3>
+																style="padding: 0 8px 0px 8px; border: 0; background: #fff; text-align: center; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">
+																<span class="panel-title"
+																	style="padding: 13px 0 7px 0; font-weight: 100; font-size: 17px;">${pro.name}</span>
 															</div>
 															<div class="panel-heading"
 																style="padding: 2px 2px; border: 0; background: #fff;">

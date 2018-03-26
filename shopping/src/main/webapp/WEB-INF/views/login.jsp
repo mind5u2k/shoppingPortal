@@ -48,7 +48,7 @@
 			<span style="color: #fff; font-size: 48px; padding: 0px 0 0 10px;"><i
 				style="cursor: pointer;"
 				onclick="window.location.href='${contextRoot}/home'"
-				class="fa fa-cube"></i></span>
+				class="fa fa-tasks"></i></span>
 			<%-- <span id="logo"> <img
 				src="${images}/ibmlogo.png" style="cursor: pointer;"
 				onclick="window.location.href='${contextRoot}/home'"
@@ -114,7 +114,7 @@
 				</div>
 				<div class="col-xs-12 col-sm-12 col-md-5 col-lg-4">
 					<div class="well no-padding"
-						style="border: 1px solid #717070; box-shadow: 7px 8px 7px #a8a5a5;">
+						style="border: 1px solid #717070; box-shadow: 0px 0px 0px #a8a5a5;">
 						<form action="${contextRoot}/login" method="POST" id="login-form"
 							class="smart-form client-form" novalidate="novalidate">
 							<header style="background: #716f6f !important; color: #fff;">
